@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects | Murali Krishna V</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #2d7ff9;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #2d7ff9;
+    }
+
+    nav a.active {
+      color: #2d7ff9;
+      border-bottom: 2px solid #2d7ff9;
+      padding-bottom: 3px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px 20px;
+      background-color: #ffffff;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .intro {
+      max-width: 600px;
+      animation: fadeIn 1s ease;
+    }
+
+    .intro h1 {
+      font-size: 42px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2d7ff9;
+      position: relative;
+    }
+
+    .intro h1::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #2d7ff9;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
+    .intro ul {
+      list-style: none;
+      padding-left: 0;
+      font-size: 16px;
+    }
+
+    .intro li {
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      padding: 15px 20px;
+      border-left: 4px solid #2d7ff9;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    .intro li:hover {
+      transform: translateY(-5px);
+      background-color: #eef4ff;
+    }
+
+    .intro li strong {
+      color: #2d7ff9;
+      font-size: 17px;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      padding: 20px;
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info div {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    .contact-info div:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo"><span>■</span>Murali Krishna V / <small>BE.ECE</small></div>
+    <nav>
+      <a href="index.html">ABOUT ME</a>
+      <a href="Resume.html">RESUME</a>
+      <a href="#" class="active">PROJECTS</a>
+      <a href="Contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="intro">
+      <h1>My Projects</h1>
+      <ul>
+        <li><strong>Smart Irrigation System</strong><br>Automated moisture-based irrigation using IoT and sensors.</li>
+        <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
+        <li><strong>Personal Portfolio Website</strong><br>Responsive personal site using HTML, CSS, and JavaScript.</li>
+      </ul>
+    </div>
+  </div>
+
+  <footer>
+    <div class="contact-info">
+      <div><strong>Call</strong><br>+91 8778156255</div>
+      <div><strong>Write</strong><br>mkmk65341@gmail.com</div>
+      <div><strong>Follow</strong><br>🔵 🗞 💼 📸</div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maya Nelson | Resume</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 30px 60px;
+      background-color: #ffffff;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .logo span {
+      color: #2d7ff9;
+    }
+
+    nav a {
+      text-decoration: none;
+      margin-left: 25px;
+      color: #333;
+      font-weight: 500;
+    }
+
+    nav a.active {
+      color: #2d7ff9;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 60px;
+      background-color: #ffffff;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #f3e6dc;
+      padding: 40px;
+      width: 350px;
+      text-align: center;
+      border-radius: 10px;
+      box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      margin-bottom: 5px;
+    }
+
+    .card p {
+      color: #777;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+    }
+
+    .card .social-icons a {
+      margin: 0 10px;
+      color: #333;
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    .resume-section {
+      max-width: 650px;
+    }
+
+    .resume-section h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2d7ff9;
+    }
+
+    .resume-section p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .resume-preview {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .resume-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #2d7ff9;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #1b61d6;
+    }
+
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-size: 13px;
+      color: #777;
+      padding: 20px;
+      background-color: #fff;
+    }
+    /* style.css */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f4f4f4;
+  color: #333;
+  animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 60px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.logo {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.logo span {
+  color: #2d7ff9;
+}
+
+nav a {
+  text-decoration: none;
+  margin-left: 25px;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2d7ff9;
+}
+
+nav a.active {
+  color: #2d7ff9;
+  border-bottom: 2px solid #2d7ff9;
+  padding-bottom: 3px;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  background-color: #ffffff;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.intro {
+  max-width: 600px;
+  animation: fadeIn 1s ease;
+}
+
+.intro h1 {
+  font-size: 42px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #2d7ff9;
+  position: relative;
+}
+
+.intro h1::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #2d7ff9;
+  margin-top: 8px;
+  border-radius: 4px;
+}
+
+.intro p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 25px;
+}
+
+.intro ul {
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+.intro li {
+  margin-bottom: 14px;
+  color: #555;
+  position: relative;
+  padding-left: 15px;
+}
+
+.intro li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #2d7ff9;
+}
+
+footer {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  padding: 20px;
+  background-color: #fff;
+  border-top: 1px solid #ddd;
+}
+
+footer div {
+  margin-top: 10px;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.contact-info div {
+  font-size: 14px;
+  transition: transform 0.3s ease;
+}
+
+.contact-info div:hover {
+  transform: scale(1.05);
+}
+
+    footer div {
+      margin-top: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 60px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+
+    .contact-info div {
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
+    <nav>
+      <a href="index.html">ABOUT ME</a>
+      <a href="Resume.html" class="active">RESUME</a>
+      <a href="Project.html">PROJECTS</a>
+      <a href="Contact.html">CONTACT</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Profile Card -->
+    <div class="card">
+      <img src="https://i.imgur.com/8Km9tLL.jpg" alt="Maya Nelson" />
+      <h2>Murali Krishna V</h2>
+      <p>BE.ECE</p>
+      <div class="social-icons">
+        <a href="#"><span>🔵</span></a>
+        <a href="#"><span>🐦</span></a>
+        <a href="#"><span>💼</span></a>
+        <a href="#"><span>📸</span></a>
+      </div>
+    </div>
+
+    <!-- Resume Section -->
+    <div class="resume-section">
+      <h1>My Resume</h1>
+      <p>You can preview and download my resume using the options below:</p>
+
+      <!-- Resume Preview Box -->
+      <div class="resume-preview">
+        <!-- Embed your PDF here -->
+        <iframe src="your-resume.pdf"></iframe>
+      </div>
+
+      <!-- Resume Download Button -->
+      <a href="your-resume.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2023 by Maya Nelson. Proudly created with Wix.com</p>
+    <div class="contact-info">
+      <div><strong>Call</strong><br>123-456-7890</div>
+      <div><strong>Write</strong><br>info@mysite.com</div>
+      <div><strong>Follow</strong><br>🔵 🐦 💼 📸</div>
+    </div>
+  </footer>
+
+</body>
+</html>
