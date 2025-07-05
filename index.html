@@ -15,9 +15,13 @@
     body {
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
+      
       color: #333;
       animation: fadeIn 1s ease-in-out;
     }
+body {
+  padding: 40px;
+}
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -25,16 +29,27 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 60px;
-      background-color: #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+}
+
+
+
+
 
     .logo {
       font-size: 20px;
+      
       font-weight: bold;
     }
 
@@ -42,9 +57,14 @@
       color: #2d7ff9;
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
     nav a {
       text-decoration: none;
-      margin-left: 25px;
+      margin-left: 20px;
       color: #333;
       font-weight: 500;
       transition: color 0.3s ease;
@@ -57,18 +77,18 @@
 
     .container {
       display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 60px 20px;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px;
       background-color: #ffffff;
       gap: 40px;
-      flex-wrap: wrap;
     }
 
     .card {
       background-color: #f3e6dc;
-      padding: 40px;
-      width: 350px;
+      padding: 30px;
+      width: 100%;
+      max-width: 350px;
       text-align: center;
       border-radius: 10px;
       box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
@@ -93,20 +113,37 @@
       margin-bottom: 20px;
     }
 
-    .intro {
-      max-width: 500px;
+    .section {
+      max-width: 800px;
+      width: 100%;
     }
 
-    .intro h1 {
-      font-size: 48px;
+    .section h1 {
+      font-size: 36px;
       font-weight: bold;
+      margin-bottom: 10px;
       color: #2d7ff9;
+      position: relative;
     }
 
-    .intro h3 {
+    .section h1::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 3px;
+      background-color: #2d7ff9;
+      margin-top: 8px;
+      border-radius: 4px;
+    }
+
+    .section h3 {
       font-weight: normal;
       margin: 10px 0 30px;
       color: #444;
+    }
+
+    .buttons {
+      margin-bottom: 20px;
     }
 
     .buttons button {
@@ -129,17 +166,48 @@
       color: #333;
     }
 
-    .description {
-      margin-top: 30px;
-      font-size: 14px;
-      color: #666;
+    .description p {
+      margin-bottom: 10px;
+      font-size: 15px;
+      
+      color: #555;
+      line-height: 1.6;
+    }
+
+    ul.project-list {
+      list-style: none;
+      padding-left: 0;
+      font-size: 16px;
+    }
+
+    ul.project-list li {
+      margin-bottom: 20px;
+      background-color: #f9f9f9;
+      padding: 15px 20px;
+      border-left: 8px solid #2d7ff9;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      transition: transform 0.3s ease, background-color 0.3s ease;
+      line-height: 1.6;
+    }
+
+    ul.project-list li:hover {
+      transform: translateY(-5px);
+      background-color: #eef4ff;
+    }
+
+    ul.project-list li strong {
+      color: #2d7ff9;
+      font-size: 17px;
     }
 
     .social-icons {
       display: flex;
+      
       justify-content: center;
       gap: 15px;
       margin-top: 15px;
+      flex-wrap: wrap;
     }
 
     .social-icons a {
@@ -149,6 +217,7 @@
       width: 36px;
       height: 36px;
       border-radius: 50%;
+      
       background-color: white;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       text-decoration: none;
@@ -160,23 +229,15 @@
       transform: scale(1.15);
     }
 
-    .social-icons a[href*="wa.me"] i {
-      color: #25D366;
-    }
-
-    .social-icons a[href^="mailto:"] i {
-      color: #EA4335;
-    }
-
+    .social-icons a[href*="wa.me"] i { color: #25D366; }
+    .social-icons a[href^="mailto:"] i { color: #EA4335; }
     .social-icons a[href*="instagram.com"] i {
       background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .social-icons a[href*="linkedin.com"] i {
-      color: #0077B5;
-    }
+    .social-icons a[href*="linkedin.com"] i { color: #0077B5;
+     }
 
     footer {
       margin-top: 60px;
@@ -187,11 +248,114 @@
       background-color: #fff;
       border-top: 1px solid #ddd;
     }
+.resume-section {
+      max-width: 650px;
+    }
 
+    .resume-section h1 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      color: #2d7ff9;
+    }
+
+    .resume-section p {
+      margin-bottom: 20px;
+      color: #555;
+    }
+
+    .resume-preview {
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      height: 400px;
+      margin-bottom: 20px;
+    }
+
+    .resume-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    .download-btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background-color: #2d7ff9;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      font-size: 14px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #1b61d6;
+    }
+body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      
+      padding: 40px;
+      color: #333;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    }
+
+    .section h1 {
+      font-size: 32px;
+      color: #2d7ff9;
+      margin-bottom: 10px;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #444;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .points-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .points-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .points-list li::before {
+      content: "🔵";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 14px;
+      color: #2d7ff9;
+    }
     .contact-info {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 40px;
       margin-top: 10px;
       flex-wrap: wrap;
     }
@@ -204,11 +368,20 @@
     .contact-info div:hover {
       transform: scale(1.05);
     }
+
+    @media (max-width: 768px) {
+      .section h1 {
+        font-size: 28px;
+      }
+      .section h3 {
+        font-size: 15px;
+      }
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="logo"><span>■</span>Murali Krishna V / <small>BE.ECE</small></div>
+    <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
     <nav>
       <a href="#" class="active">ABOUT ME</a>
       <a href="Resume.html">RESUME</a>
@@ -226,44 +399,136 @@
         <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
         <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
         <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
-    <div class="intro">
+
+    <div class="section">
       <h1>Hello</h1>
       <h3>Here's who I am & what I do</h3>
       <div class="buttons">
-        <button class="resume-btn" onclick="window.open('Resume.pdf')">RESUME</button>
+        <button class="resume-btn" onclick="window.open('MK RESUME.pdf')">RESUME</button>
         <button class="projects-btn" onclick="window.location.href='Project.html'">PROJECTS</button>
       </div>
       <div class="description">
-        <p>
-          I'm a paragraph. Click here to add your own text and edit me.
-          Just click “Edit Text” or double click me to add your own content
-          and make changes to the font.
-        </p>
-        <p>
-          I’m a great place for you to tell a story and let your users know
-          a little more about you.
-        </p>
+        <p>I am an Electronics and Communication Engineering student with a passion for embedded systems, circuit design, and innovative tech solutions.</p>
+        <p>I enjoy building smart projects, working on PCBs, and exploring web development.</p>
       </div>
+    </div>
+     <div class="section">
+    <h1>My Self</h1>
+    <h2>Murali Krishna V</h2>
+    <p><strong>ECE 3rd Year</strong></p>
+    <ul class="points-list">
+      <li>Hi, I’m Murali Krishna V.</li>
+      <li>I am currently studying Electronics and Communication Engineering at Panimalar Engineering College.</li>
+      <li>I have worked on practical projects like PCB design and web apps using HTML, CSS, JavaScript, and React.</li>
+     <li>I enjoy building clean, interactive websites.</li>
+      <li>I am truly passionate about hardware debugging.</li>
+      <li>Exploring new technology and learning something new every day keeps me motivated.</li>
+        <li>My dream is to become a well-rounded engineer who creates meaningful solutions.</li>
+    </ul>
+  </div>
+    <div class="section">
+          <h1>🔍 What I Focus On</h1>
+          <ul class="points-list">
+            <li>Creative and Clean Web UI using HTML, CSS, JS & React</li>
+            <li>PCB design, fault identification, and solder rework</li>
+            <li>Clear communication and continuous self-growth</li>
+          </ul>
+          </div>
+      <div class="section">
+          <h1>Skills</h1>
+          <ul class="points-list">      
+            <li>Python, C</li>
+            <li>HTML, CSS, JS, React</li>
+        </div>
+         <div class="section">
+          <h1>Certifications</h1>
+          <ul class="points-list">
+          <li>BSNL – Internship Training</li>
+           <li>Q Spiders – Web Development</li>
+          <li>TANSAM – PCB Design and Debugging</li>           
+          <li>Brithish Council </li>
+            
+        </div>
+             <div class="section">
+          <h1>Values</h1>
+          <ul class="points-list">
+            <li>Curiosity</li>
+            <li>Self-Motivation</li>
+            <li>Growth Mindset</li>
+            <li>Adaptability</li>
+         
+        </div>
+             <div class="section">
+          <h1>Academic Background</h1>
+          <ul class="points-list">
+          
+            <li>10th (2021): PASS (COVID)</li>
+            <li>11th (2022): ~60%</li>
+            <li>12th (2023): ~64%</li>
+         
+          </ul>
+        </div>
+        <div class="section">
+          <h1>My Goal</h1>
+          <ul class="points-list">
+          <li>To be a well-rounded engineer contributing to impactful and meaningful innovation.</li>
+    
+    </div>      <div class="section">
+      <h1>My Resume</h1>
+      <div class="resume-preview">
+        <!-- Embed your PDF here -->
+        <iframe src="MK RESUME.pdf'"></iframe>
+      </div>
+      <!-- Resume Download Button -->
+      <a href="your-resume.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
+    </div>
+
+
+    <div class="section">
+      <h1>My Projects</h1>
+      <ul class="project-list">
+        <li><strong>Adaptive Path Finding Car:</strong><br>Built a robotic car with adaptive path-finding using sensors and basic
+algorithms.
+Enabled obstacle detection and autonomous navigation.
+</li>
+        <li><strong>Personal Portfolio Website</strong><br>Developed a responsive personal portfolio using HTML, CSS, and
+JavaScript, including a music-themed webpage showcasing media
+integration and interactive design.</li>
+ <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
+       
+      </ul>
     </div>
   </div>
 
-  <footer>
-    <div class="contact-info">
-      <div><strong>Call</strong><br>+91 8778156255</div>
-      <div><strong>Write</strong><br>mkmk65341@gmail.com</div>
-      <div>
-        <strong>Follow</strong>
-        <div class="social-icons">
-          <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
-          <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
-          <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://www.linkedin.com/in/yourprofile" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
+ <footer>
+  <div class="contact-info">
+    <div>
+      <strong>Call</strong><br>
+      <a href="tel:+918778156255">+91 8778156255</a>
     </div>
-  </footer>
+    <div>
+      <strong>Write</strong><br>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+  mkmk65341@gmail.com
+</a>
+ </div>
+  </div>
+  
+  <div class="follow-section">
+    <br>
+    <strong>Follow</strong>
+    <div class="social-icons">
+      <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+         </div>
+  </div>
+</footer>
+
+
 </body>
 </html>
