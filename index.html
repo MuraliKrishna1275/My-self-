@@ -12,16 +12,15 @@
       padding: 0;
     }
 
-    body {
+    html, body {
+      height: 100%;
+      width: 100%;
       font-family: 'Segoe UI', sans-serif;
       background-color: #f4f4f4;
-      
       color: #333;
+      
       animation: fadeIn 1s ease-in-out;
     }
-body {
-  padding: 40px;
-}
 
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(20px); }
@@ -29,27 +28,21 @@ body {
     }
 
     header {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 20px 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
-}
-
-
-
-
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      padding: 20px 30px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom-left-radius: 50% 20%;
+      border-bottom-right-radius: 50% 20%;
+    }
 
     .logo {
       font-size: 20px;
-      
       font-weight: bold;
     }
 
@@ -79,7 +72,7 @@ body {
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 40px 20px;
+      padding: 0;
       background-color: #ffffff;
       gap: 40px;
     }
@@ -88,11 +81,17 @@ body {
       background-color: #f3e6dc;
       padding: 30px;
       width: 100%;
+      margin-top: -30px;
       max-width: 350px;
+      align-self: center;
       text-align: center;
       border-radius: 10px;
       box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
     }
+    .card {
+  margin-top: 40px; /* move down */
+}
+
 
     .card img {
       width: 120px;
@@ -116,30 +115,60 @@ body {
     .section {
       max-width: 800px;
       width: 100%;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .section h1 {
-      font-size: 36px;
-      font-weight: bold;
+      font-size: 28px;
+      color: #1e90ff;
       margin-bottom: 10px;
-      color: #2d7ff9;
-      position: relative;
     }
 
-    .section h1::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: #2d7ff9;
-      margin-top: 8px;
-      border-radius: 4px;
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #444;
     }
 
     .section h3 {
       font-weight: normal;
       margin: 10px 0 30px;
       color: #444;
+    }
+
+    .section p {
+      font-size: 16px;
+      color: #444;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
+
+    .points-list {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    .points-list li {
+      position: relative;
+      padding-left: 30px;
+      margin-bottom: 15px;
+      font-size: 16px;
+      color: #444;
+      line-height: 1.6;
+    }
+
+    .points-list li::before {
+      content: "🔵";
+      position: absolute;
+      left: 0;
+      top: 2px;
+      font-size: 14px;
+      color: #2d7ff9;
     }
 
     .buttons {
@@ -164,14 +193,6 @@ body {
       background-color: transparent;
       border: 1.5px solid #333;
       color: #333;
-    }
-
-    .description p {
-      margin-bottom: 10px;
-      font-size: 15px;
-      
-      color: #555;
-      line-height: 1.6;
     }
 
     ul.project-list {
@@ -203,7 +224,6 @@ body {
 
     .social-icons {
       display: flex;
-      
       justify-content: center;
       gap: 15px;
       margin-top: 15px;
@@ -217,7 +237,6 @@ body {
       width: 36px;
       height: 36px;
       border-radius: 50%;
-      
       background-color: white;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       text-decoration: none;
@@ -232,12 +251,39 @@ body {
     .social-icons a[href*="wa.me"] i { color: #25D366; }
     .social-icons a[href^="mailto:"] i { color: #EA4335; }
     .social-icons a[href*="instagram.com"] i {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-    .social-icons a[href*="linkedin.com"] i { color: #0077B5;
-     }
+    .social-icons a[href*="linkedin.com"] i { color: #0077B5; }
+
+    .download-btn {
+      display: inline-block;
+      background-color: #1e90ff;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background-color: #0077cc;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .contact-info div:hover {
+      transform: scale(1.05);
+    }
 
     footer {
       margin-top: 60px;
@@ -248,136 +294,18 @@ body {
       background-color: #fff;
       border-top: 1px solid #ddd;
     }
-.resume-section {
-      max-width: 650px;
-    }
-
-    .resume-section h1 {
-      font-size: 36px;
-      font-weight: bold;
-      margin-bottom: 10px;
-      color: #2d7ff9;
-    }
-
-    .resume-section p {
-      margin-bottom: 20px;
-      color: #555;
-    }
-
-    .resume-preview {
-      border: 1px solid #ccc;
-      border-radius: 10px;
-      overflow: hidden;
-      height: 400px;
-      margin-bottom: 20px;
-    }
-
-    .resume-preview iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-
-    .download-btn {
-      display: inline-block;
-      padding: 12px 20px;
-      background-color: #2d7ff9;
-      color: #fff;
-      border: none;
-      border-radius: 25px;
-      font-size: 14px;
-      text-decoration: none;
-      transition: background-color 0.3s ease;
-    }
-
-    .download-btn:hover {
-      background-color: #1b61d6;
-    }
-body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      margin: 0;
-      
-      padding: 40px;
-      color: #333;
-    }
-
-    .section {
-      max-width: 800px;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-    }
-
-    .section h1 {
-      font-size: 32px;
-      color: #2d7ff9;
-      margin-bottom: 10px;
-    }
-
-    .section h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #444;
-    }
-
-    .section p {
-      font-size: 16px;
-      color: #666;
-      margin-bottom: 10px;
-    }
-
-    .points-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
-
-    .points-list li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      color: #444;
-      line-height: 1.6;
-    }
-
-    .points-list li::before {
-      content: "🔵";
-      position: absolute;
-      left: 0;
-      top: 2px;
-      font-size: 14px;
-      color: #2d7ff9;
-    }
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-    }
-
-    .contact-info div {
-      font-size: 14px;
-      transition: transform 0.3s ease;
-    }
-
-    .contact-info div:hover {
-      transform: scale(1.05);
-    }
 
     @media (max-width: 768px) {
-      .section h1 {
-        font-size: 28px;
-      }
-      .section h3 {
-        font-size: 15px;
-      }
+      .section h1 { font-size: 24px; }
+      .section h3 { font-size: 15px; }
     }
   </style>
+</head>
+<body>
+  <!-- Your existing HTML structure remains here (header, sections, content, etc.) -->
+</body>
+</html>
+
 </head>
 <body>
   <header>
@@ -476,7 +404,7 @@ body {
           <ul class="points-list">
           <li>To be a well-rounded engineer contributing to impactful and meaningful innovation.</li>
     
-    </div>      <div class="section">
+    </div>   <div class="section">
   <h1>My Resume</h1>
   <p>
     Here is a quick overview of my academic background, technical skills, project experiences, and achievements. 
@@ -484,6 +412,8 @@ body {
   </p>
   <a href="MK%20RESUME.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
 </div>
+
+
 
 
     <div class="section">
