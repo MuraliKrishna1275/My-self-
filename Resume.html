@@ -4,6 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Maya Nelson | Resume</title>
+  <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Murali Krishna V | Resume</title>
+
+  <!-- ✅ Font Awesome added here -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     * {
       box-sizing: border-box;
@@ -18,12 +26,22 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 60px;
-      background-color: #ffffff;
-    }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+
+  animation: circularMove 10s linear infinite;
+}
+
 
     .logo {
       font-size: 20px;
@@ -289,6 +307,40 @@ footer div {
   transform: scale(1.05);
 }
 
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      font-size: 18px;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.15);
+    }
+
+    .social-icons a[href*="wa.me"] i { color: #25D366; }
+    .social-icons a[href^="mailto:"] i { color: #EA4335; }
+    .social-icons a[href*="instagram.com"] i {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .social-icons a[href*="linkedin.com"] i { color: #0077B5; }
     footer div {
       margin-top: 10px;
     }
@@ -325,10 +377,10 @@ footer div {
       <h2>Murali Krishna V</h2>
       <p>BE.ECE</p>
       <div class="social-icons">
-        <a href="#"><span>🔵</span></a>
-        <a href="#"><span>🐦</span></a>
-        <a href="#"><span>💼</span></a>
-        <a href="#"><span>📸</span></a>
+        <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
       </div>
     </div>
 
@@ -338,24 +390,32 @@ footer div {
       <p>You can preview and download my resume using the options below:</p>
 
       <!-- Resume Preview Box -->
-      <div class="resume-preview">
-        <!-- Embed your PDF here -->
-        <iframe src="your-resume.pdf"></iframe>
-      </div>
+      
 
       <!-- Resume Download Button -->
-      <a href="your-resume.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
+      <a href="MK RESUME.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
     </div>
   </div>
 
   <footer>
-    <p>© 2023 by Maya Nelson. Proudly created with Wix.com</p>
-    <div class="contact-info">
-      <div><strong>Call</strong><br>123-456-7890</div>
-      <div><strong>Write</strong><br>info@mysite.com</div>
-      <div><strong>Follow</strong><br>🔵 🐦 💼 📸</div>
-    </div>
-  </footer>
+  <div class="contact-info">
+   <div><strong>Call</strong><br><a href="tel:+918778156255">+91 8778156255</a></div>
+<div> <strong>Write</strong><br><a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+  mkmk65341@gmail.com</div>
+</a>
+ </div>
+  
+  <div class="follow-section">
+    <br>
+    <strong>Follow</strong>
+    <div class="social-icons">
+      <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn">
+  <i class="fab fa-linkedin"></i> </div>
+  </div>
+</footer>
 
 </body>
 </html>
