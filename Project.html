@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Projects | Murali Krishna V</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     * {
       box-sizing: border-box;
@@ -24,13 +25,22 @@
     }
 
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 30px 60px;
-      background-color: #ffffff;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px 30px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  flex-wrap: wrap;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom-left-radius: 50% 20%;
+  border-bottom-right-radius: 50% 20%;
+
+  animation: circularMove 10s linear infinite;
+}
+
 
     .logo {
       font-size: 20px;
@@ -49,10 +59,7 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: #2d7ff9;
-    }
-
+    nav a:hover,
     nav a.active {
       color: #2d7ff9;
       border-bottom: 2px solid #2d7ff9;
@@ -132,7 +139,7 @@
     .contact-info {
       display: flex;
       justify-content: center;
-      gap: 60px;
+      gap: 40px;
       margin-top: 10px;
       flex-wrap: wrap;
     }
@@ -144,6 +151,74 @@
 
     .contact-info div:hover {
       transform: scale(1.05);
+    }
+
+    .social-icons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background-color: white;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      text-decoration: none;
+      transition: transform 0.3s ease;
+      font-size: 18px;
+    }
+
+    .social-icons a:hover {
+      transform: scale(1.15);
+    }
+
+    .social-icons a[href*="wa.me"] i {
+      color: #25D366;
+    }
+
+    .social-icons a[href^="mailto:"] i {
+      color: #EA4335;
+    }
+
+    .social-icons a[href*="instagram.com"] i {
+      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .social-icons a[href*="linkedin.com"] i {
+      color: #0077B5;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .intro h1 {
+        font-size: 32px;
+      }
+
+      nav a {
+        margin-left: 15px;
+        font-size: 14px;
+      }
+
+      .container {
+        padding: 40px 15px;
+      }
     }
   </style>
 </head>
@@ -162,19 +237,43 @@
     <div class="intro">
       <h1>My Projects</h1>
       <ul>
-        <li><strong>Smart Irrigation System</strong><br>Automated moisture-based irrigation using IoT and sensors.</li>
-        <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
-        <li><strong>Personal Portfolio Website</strong><br>Responsive personal site using HTML, CSS, and JavaScript.</li>
-      </ul>
+         <li><strong>Adaptive Path Finding Car:</strong><br>Built a robotic car with adaptive path-finding using sensors and basic
+algorithms.
+Enabled obstacle detection and autonomous navigation.
+</li>
+        <li><strong>Personal Portfolio Website</strong><br>Developed a responsive personal portfolio using HTML, CSS, and
+JavaScript, including a music-themed webpage showcasing media
+integration and interactive design.</li>
+ <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
+       </ul>
     </div>
   </div>
 
-  <footer>
-    <div class="contact-info">
-      <div><strong>Call</strong><br>+91 8778156255</div>
-      <div><strong>Write</strong><br>mkmk65341@gmail.com</div>
-      <div><strong>Follow</strong><br>🔵 🗞 💼 📸</div>
+ <footer>
+  <div class="contact-info">
+    <div>
+      <strong>Call</strong><br>
+      <a href="tel:+918778156255">+91 8778156255</a>
     </div>
-  </footer>
+    <div>
+      <strong>Write</strong><br>
+      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+  mkmk65341@gmail.com
+</a>
+ </div>
+  </div>
+  
+  <div class="follow-section">
+    <br>
+    <strong>Follow</strong>
+    <div class="social-icons">
+      <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+      <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+         </div>
+  </div>
+</footer>
+
 </body>
 </html>
