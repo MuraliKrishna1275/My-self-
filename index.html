@@ -1,482 +1,531 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Murali Krishna V | BE.ECE</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Murali Krishna V | BE.ECE</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    html, body {
-      height: 100%;
-      width: 100%;
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
-      
-      animation: fadeIn 1s ease-in-out;
-    }
+        html, body {
+            height: 100%;
+            width: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            animation: fadeIn 1s ease-in-out;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    header {
-      position: relative;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      width: 100%;
-      padding: 20px 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border-bottom-left-radius: 50% 20%;
-      border-bottom-right-radius: 50% 20%;
-    }
+        header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 30px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            z-index: 1000; /* Ensure header is above other content */
+        }
 
-    .logo {
-      font-size: 20px;
-      font-weight: bold;
-    }
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
 
-    .logo span {
-      color: #2d7ff9;
-    }
+        .logo span {
+            color: #2d7ff9;
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-    }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    nav a {
-      text-decoration: none;
-      margin-left: 20px;
-      color: #333;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
+        nav a {
+            text-decoration: none;
+            margin-left: 20px;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    nav a:hover,
-    nav a.active {
-      color: #2d7ff9;
-    }
+        nav a:hover,
+        nav a.active {
+            color: #2d7ff9;
+        }
 
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 20px;
-      padding: 0;
-      background-color: #ffffff;
-      gap: 40px;
-    }
+        /* Hamburger Menu Styles */
+        .menu-toggle {
+            display: none; /* Hidden by default for desktop */
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1001; /* Ensure toggle is above nav on mobile */
+        }
 
-    .card {
-  background-color: #f3e6dc;
-  padding: 30px;
-  width: 90%; /* Change from 100% to 90% */
-  max-width: 350px;
-  margin: 40px auto; /* Center and give spacing */
-  text-align: center;
-  border-radius: 10px;
-  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
-}
-    .card {
-  margin-top: 40px; /* move down */
-}
+        .menu-toggle .fa-bars,
+        .menu-toggle .fa-times {
+            display: block;
+        }
 
+        .menu-toggle.active .fa-bars {
+            display: none;
+        }
 
-    .card img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 20px;
-    }
+        .menu-toggle:not(.active) .fa-times {
+            display: none;
+        }
 
-    .card h2 {
-      margin-bottom: 5px;
-    }
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide nav links by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                padding: 20px 30px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                text-align: center;
+            }
 
-    .card p {
-      color: #777;
-      font-size: 14px;
-      letter-spacing: 2px;
-      margin-bottom: 20px;
-    }
+            nav.open {
+                display: flex; /* Show nav links when open */
+            }
 
-    .section {
-      max-width: 800px;
-      width: 100%;
-      margin: 0 auto;
-      background-color: #fff;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
+            nav a {
+                margin: 10px 0;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
 
-    .section h1 {
-      font-size: 28px;
-      color: #1e90ff;
-      margin-bottom: 10px;
-    }
+            nav a:last-child {
+                border-bottom: none;
+            }
 
-    .section h2 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      color: #444;
-    }
+            .menu-toggle {
+                display: block; /* Show hamburger on mobile */
+            }
 
-    .section h3 {
-      font-weight: normal;
-      margin: 10px 0 30px;
-      color: #444;
-    }
+            header {
+                justify-content: space-between; /* Space out logo and toggle */
+            }
+        }
 
-    .section p {
-      font-size: 16px;
-      color: #444;
-      margin-bottom: 20px;
-      line-height: 1.5;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-color: #ffffff;
+            gap: 40px;
+        }
 
-    .points-list {
-      list-style: none;
-      padding-left: 0;
-      margin-top: 20px;
-    }
+        .card {
+            background-color: #f3e6dc;
+            padding: 30px;
+            width: 90%;
+            max-width: 350px;
+            margin: 40px auto;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.1);
+        }
 
-    .points-list li {
-      position: relative;
-      padding-left: 30px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      color: #444;
-      line-height: 1.6;
-    }
+        .card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
 
-    .points-list li::before {
-      content: "🔵";
-      position: absolute;
-      left: 0;
-      top: 2px;
-      font-size: 14px;
-      color: #2d7ff9;
-    }
+        .card h2 {
+            margin-bottom: 5px;
+        }
 
-    .buttons {
-      margin-bottom: 20px;
-    }
+        .card p {
+            color: #777;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+        }
 
-    .buttons button {
-      padding: 10px 20px;
-      border: none;
-      margin-right: 15px;
-      font-size: 14px;
-      cursor: pointer;
-      border-radius: 20px;
-    }
+        .section {
+            max-width: 800px;
+            width: 100%;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
 
-    .resume-btn {
-      background-color: #2d7ff9;
-      color: #fff;
-    }
+        .section h1 {
+            font-size: 28px;
+            color: #1e90ff;
+            margin-bottom: 10px;
+        }
 
-    .projects-btn {
-      background-color: transparent;
-      border: 1.5px solid #333;
-      color: #333;
-    }
+        .section h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #444;
+        }
 
-    ul.project-list {
-      list-style: none;
-      padding-left: 0;
-      font-size: 16px;
-    }
+        .section h3 {
+            font-weight: normal;
+            margin: 10px 0 30px;
+            color: #444;
+        }
 
-    ul.project-list li {
-      margin-bottom: 20px;
-      background-color: #f9f9f9;
-      padding: 15px 20px;
-      border-left: 8px solid #2d7ff9;
-      border-radius: 6px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.3s ease, background-color 0.3s ease;
-      line-height: 1.6;
-    }
+        .section p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
 
-    ul.project-list li:hover {
-      transform: translateY(-5px);
-      background-color: #eef4ff;
-    }
+        .points-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px;
+        }
 
-    ul.project-list li strong {
-      color: #2d7ff9;
-      font-size: 17px;
-    }
+        .points-list li {
+            position: relative;
+            padding-left: 30px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #444;
+            line-height: 1.6;
+        }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      margin-top: 15px;
-      flex-wrap: wrap;
-    }
+        .points-list li::before {
+            content: "🔵";
+            position: absolute;
+            left: 0;
+            top: 2px;
+            font-size: 14px;
+            color: #2d7ff9;
+        }
 
-    .social-icons a {
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background-color: white;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-      text-decoration: none;
-      transition: transform 0.3s ease;
-      font-size: 18px;
-    }
+        .buttons {
+            margin-bottom: 20px;
+        }
 
-    .social-icons a:hover {
-      transform: scale(1.15);
-    }
+        .buttons button {
+            padding: 10px 20px;
+            border: none;
+            margin-right: 15px;
+            font-size: 14px;
+            cursor: pointer;
+            border-radius: 20px;
+        }
 
-    .social-icons a[href*="wa.me"] i { color: #25D366; }
-    .social-icons a[href^="mailto:"] i { color: #EA4335; }
-    .social-icons a[href*="instagram.com"] i {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .social-icons a[href*="linkedin.com"] i { color: #0077B5; }
+        .resume-btn {
+            background-color: #2d7ff9;
+            color: #fff;
+        }
 
-    .download-btn {
-      display: inline-block;
-      background-color: #1e90ff;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background-color 0.3s ease;
-    }
+        .projects-btn {
+            background-color: transparent;
+            border: 1.5px solid #333;
+            color: #333;
+        }
 
-    .download-btn:hover {
-      background-color: #0077cc;
-    }
+        ul.project-list {
+            list-style: none;
+            padding-left: 0;
+            font-size: 16px;
+        }
 
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      margin-top: 10px;
-      flex-wrap: wrap;
-      font-size: 14px;
-    }
+        ul.project-list li {
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+            padding: 15px 20px;
+            border-left: 8px solid #2d7ff9;
+            border-radius: 6px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            line-height: 1.6;
+        }
 
-    .contact-info div:hover {
-      transform: scale(1.05);
-    }
+        ul.project-list li:hover {
+            transform: translateY(-5px);
+            background-color: #eef4ff;
+        }
 
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      font-size: 13px;
-      color: #777;
-      padding: 20px;
-      background-color: #fff;
-      border-top: 1px solid #ddd;
-    }
+        ul.project-list li strong {
+            color: #2d7ff9;
+            font-size: 17px;
+        }
 
-   @media (max-width: 768px) {
-  .section h1 { font-size: 24px; }
-  .section h2 { font-size: 20px; }
-  .section h3 { font-size: 15px; }
-  .logo { font-size: 16px; }
-  nav {
-    flex-direction: column;
-    align-items: center;
-    margin-top: 10px;
-  }
-  nav a {
-    margin: 5px 0;
-  }
-  .buttons {
-    flex-direction: column;
-    gap: 10px;
-  }
-  .buttons button {
-    width: 100%;
-    max-width: 250px;
-  }
-}
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
 
-  </style>
+        .social-icons a {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            font-size: 18px;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.15);
+        }
+
+        .social-icons a[href*="wa.me"] i { color: #25D366; }
+        .social-icons a[href^="mailto:"] i { color: #EA4335; }
+        .social-icons a[href*="instagram.com"] i {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .social-icons a[href*="linkedin.com"] i { color: #0077B5; }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #1e90ff;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-btn:hover {
+            background-color: #0077cc;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+            font-size: 14px;
+        }
+
+        .contact-info div:hover {
+            transform: scale(1.05);
+        }
+
+        footer {
+            margin-top: 60px;
+            text-align: center;
+            font-size: 13px;
+            color: #777;
+            padding: 20px;
+            background-color: #fff;
+            border-top: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
-  <!-- Your existing HTML structure remains here (header, sections, content, etc.) -->
-</body>
-</html>
-
-</head>
-<body>
-  <header>
-    <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
-    <nav>
-      <a href="#" class="active">ABOUT ME</a>
-      <a href="Resume.html">RESUME</a>
-      <a href="Project.html">PROJECTS</a>
-      <a href="Contact.html">CONTACT</a>
-    </nav>
-  </header>
-
-  <div class="container">
-    <div class="card">
-      <img src="IMG_20241211_213018.jpg" alt="Murali Krishna" />
-      <h2>Murali Krishna V</h2>
-      <p>BE.ECE</p>
-      <div class="social-icons">
-        <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
-        <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
-      </div>
-    </div>
-
-    <div class="section">
-      <h1>Hello</h1>
-      <h3>Here's who I am & what I do</h3>
-      <div class="buttons">
-        <button class="resume-btn" onclick="window.open('MK RESUME.pdf')">RESUME</button>
-        <button class="projects-btn" onclick="window.location.href='Project.html'">PROJECTS</button>
-      </div>
-      <div class="description">
-        <p>I am an Electronics and Communication Engineering student with a passion for embedded systems, circuit design, and innovative tech solutions.</p>
-        <p>I enjoy building smart projects, working on PCBs, and exploring web development.</p>
-      </div>
-    </div>
-     <div class="section">
-    <h1>My Self</h1>
-    <h2>Murali Krishna V</h2>
-    <p><strong>ECE 3rd Year</strong></p>
-    <ul class="points-list">
-      <li>Hi, I’m Murali Krishna V.</li>
-      <li>I am currently studying Electronics and Communication Engineering at Panimalar Engineering College.</li>
-      <li>I have worked on practical projects like PCB design and web apps using HTML, CSS, JavaScript, and React.</li>
-     <li>I enjoy building clean, interactive websites.</li>
-      <li>I am truly passionate about hardware debugging.</li>
-      <li>Exploring new technology and learning something new every day keeps me motivated.</li>
-        <li>My dream is to become a well-rounded engineer who creates meaningful solutions.</li>
-    </ul>
-  </div>
-    <div class="section">
-          <h1>🔍 What I Focus On</h1>
-          <ul class="points-list">
-            <li>Creative and Clean Web UI using HTML, CSS, JS & React</li>
-            <li>PCB design, fault identification, and solder rework</li>
-            <li>Clear communication and continuous self-growth</li>
-          </ul>
-          </div>
-      <div class="section">
-          <h1>Skills</h1>
-          <ul class="points-list">      
-            <li>Python, C</li>
-            <li>HTML, CSS, JS, React</li>
+    <header>
+        <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
+        <nav id="mainNav">
+            <a href="index.html" class="active">ABOUT ME</a>
+            <a href="Resume.html">RESUME</a>
+            <a href="Project.html">PROJECTS</a>
+            <a href="Contact.html">CONTACT</a>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
         </div>
-         <div class="section">
-          <h1>Certifications</h1>
-          <ul class="points-list">
-          <li>BSNL – Internship Training</li>
-           <li>Q Spiders – Web Development</li>
-          <li>TANSAM – PCB Design and Debugging</li>           
-          <li>Brithish Council </li>
-            
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <img src="IMG_20241211_213018.jpg" alt="Murali Krishna" />
+            <h2>Murali Krishna V</h2>
+            <p>BE.ECE</p>
+            <div class="social-icons">
+                <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
+            </div>
         </div>
-             <div class="section">
-          <h1>Values</h1>
-          <ul class="points-list">
-            <li>Curiosity</li>
-            <li>Self-Motivation</li>
-            <li>Growth Mindset</li>
-            <li>Adaptability</li>
-         
-        </div>
-             <div class="section">
-          <h1>Academic Background</h1>
-          <ul class="points-list">
-          
-            <li>10th (2021): PASS (COVID)</li>
-            <li>11th (2022): ~60%</li>
-            <li>12th (2023): ~64%</li>
-         
-          </ul>
+
+        <div class="section">
+            <h1>Hello</h1>
+            <h3>Here's who I am & what I do</h3>
+            <div class="buttons">
+                <button class="resume-btn" onclick="window.open('MK RESUME.pdf')">RESUME</button>
+                <button class="projects-btn" onclick="window.location.href='Project.html'">PROJECTS</button>
+            </div>
+            <div class="description">
+                <p>I am an Electronics and Communication Engineering student with a passion for embedded systems, circuit design, and innovative tech solutions.</p>
+                <p>I enjoy building smart projects, working on PCBs, and exploring web development.</p>
+            </div>
         </div>
         <div class="section">
-          <h1>My Goal</h1>
-          <ul class="points-list">
-          <li>To be a well-rounded engineer contributing to impactful and meaningful innovation.</li>
-    
-    </div>   <div class="section">
-  <h1>My Resume</h1>
-  <p>
-    Here is a quick overview of my academic background, technical skills, project experiences, and achievements. 
-   <br><br> Download the PDF version of my resume to know more about my qualifications and what I bring to the table.
-  </p>
-  <a href="MK%20RESUME.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
-</div>
+            <h1>My Self</h1>
+            <h2>Murali Krishna V</h2>
+            <p><strong>ECE 3rd Year</strong></p>
+            <ul class="points-list">
+                <li>Hi, I’m Murali Krishna V.</li>
+                <li>I am currently studying Electronics and Communication Engineering at Panimalar Engineering College.</li>
+                <li>I have worked on practical projects like PCB design and web apps using HTML, CSS, JavaScript, and React.</li>
+                <li>I enjoy building clean, interactive websites.</li>
+                <li>I am truly passionate about hardware debugging.</li>
+                <li>Exploring new technology and learning something new every day keeps me motivated.</li>
+                <li>My dream is to become a well-rounded engineer who creates meaningful solutions.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>🔍 What I Focus On</h1>
+            <ul class="points-list">
+                <li>Creative and Clean Web UI using HTML, CSS, JS & React</li>
+                <li>PCB design, fault identification, and solder rework</li>
+                <li>Clear communication and continuous self-growth</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>Skills</h1>
+            <ul class="points-list">
+                <li>Python, C</li>
+                <li>HTML, CSS, JS, React</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>Certifications</h1>
+            <ul class="points-list">
+                <li>BSNL – Internship Training</li>
+                <li>Q Spiders – Web Development</li>
+                <li>TANSAM – PCB Design and Debugging</li>
+                <li>Brithish Council </li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>Values</h1>
+            <ul class="points-list">
+                <li>Curiosity</li>
+                <li>Self-Motivation</li>
+                <li>Growth Mindset</li>
+                <li>Adaptability</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>Academic Background</h1>
+            <ul class="points-list">
+                <li>10th (2021): PASS (COVID)</li>
+                <li>11th (2022): ~60%</li>
+                <li>12th (2023): ~64%</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>My Goal</h1>
+            <ul class="points-list">
+                <li>To be a well-rounded engineer contributing to impactful and meaningful innovation.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h1>My Resume</h1>
+            <p>
+                Here is a quick overview of my academic background, technical skills, project experiences, and achievements.
+                <br><br> Download the PDF version of my resume to know more about my qualifications and what I bring to the table.
+            </p>
+            <a href="MK%20RESUME.pdf" class="download-btn" download>⬇ Download Resume (PDF)</a>
+        </div>
 
-
-
-
-    <div class="section">
-      <h1>My Projects</h1>
-      <ul class="project-list">
-        <li><strong>Adaptive Path Finding Car:</strong><br>Built a robotic car with adaptive path-finding using sensors and basic
-algorithms.
-Enabled obstacle detection and autonomous navigation.
-</li>
-        <li><strong>Personal Portfolio Website</strong><br>Developed a responsive personal portfolio using HTML, CSS, and
-JavaScript, including a music-themed webpage showcasing media
-integration and interactive design.</li>
- <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
-       
-      </ul>
+        <div class="section">
+            <h1>My Projects</h1>
+            <ul class="project-list">
+                <li><strong>Adaptive Path Finding Car:</strong><br>Built a robotic car with adaptive path-finding using sensors and basic
+                    algorithms. Enabled obstacle detection and autonomous navigation.
+                </li>
+                <li><strong>Personal Portfolio Website</strong><br>Developed a responsive personal portfolio using HTML, CSS, and
+                    JavaScript, including a music-themed webpage showcasing media
+                    integration and interactive design.
+                </li>
+                <li><strong>PCB Fault Detection Tool</strong><br>Interface for identifying and repairing faults in printed circuit boards.</li>
+            </ul>
+        </div>
     </div>
-  </div>
 
- <footer>
-  <div class="contact-info">
-    <div>
-      <strong>Call</strong><br>
-      <a href="tel:+918778156255">+91 8778156255</a>
-    </div>
-    <div>
-      <strong>Write</strong><br>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
-  mkmk65341@gmail.com
-</a>
- </div>
-  </div>
-  
-  <div class="follow-section">
-    <br>
-    <strong>Follow</strong>
-    <div class="social-icons">
-      <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-      <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-      <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-         </div>
-  </div>
-</footer>
+    <footer>
+        <div class="contact-info">
+            <div>
+                <strong>Call</strong><br>
+                <a href="tel:+918778156255">+91 8778156255</a>
+            </div>
+            <div>
+                <strong>Write</strong><br>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+                    mkmk65341@gmail.com
+                </a>
+            </div>
+        </div>
 
+        <div class="follow-section">
+            <br>
+            <strong>Follow</strong>
+            <div class="social-icons">
+                <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
+
+            menuToggle.addEventListener('click', function () {
+                mainNav.classList.toggle('open');
+                menuToggle.classList.toggle('active'); // Toggle 'active' class for icon change
+            });
+
+            // Close menu when a navigation link is clicked (optional, but good for UX)
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) { // Only close on mobile
+                        mainNav.classList.remove('open');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
