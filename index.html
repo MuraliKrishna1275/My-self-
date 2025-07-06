@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Murali Krishna V | BE.ECE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600;1,700&family=Kaushan+Script&family=Libertinus+Math&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         * {
@@ -11,6 +15,23 @@
             margin: 0;
             padding: 0;
         }
+  body {
+      font-family: 'Crimson Text', serif;
+    }
+.logo {
+  font-family: 'Kaushan Script', cursive;
+}
+
+    h1, h2 {
+      font-family: 'Kaushan Script', cursive;
+    }
+
+    .retro-text {
+      font-family: 'Libertinus Math', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #333;
+    }
 
         html, body {
             height: 100%;
@@ -356,19 +377,68 @@
 </head>
 <body>
     <header>
-        <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
-        <nav id="mainNav">
-            <a href="index.html" class="active">ABOUT ME</a>
-            <a href="Resume.html">RESUME</a>
-            <a href="Project.html">PROJECTS</a>
-            <a href="Contact.html">CONTACT</a>
-        </nav>
-        <div class="menu-toggle" id="menuToggle">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-times"></i>
-        </div>
-    </header>
+    <div class="logo">
+        <img src="IMG_20241211_213018.jpg" alt="Profile" class="profile-img">
+        Murali Krishna V / <small>BE.ECE</small>
+    </div>
+    <nav id="mainNav">
+        <a href="index.html" class="active">ABOUT ME</a>
+        <a href="Resume.html">RESUME</a>
+        <a href="Project.html">PROJECTS</a>
+        <a href="Contact.html">CONTACT</a>
+    </nav>
+    <div class="menu-toggle" id="menuToggle">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-times"></i>
+    </div>
+</header>
 
+<style>
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .profile-img {
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .project-list li strong {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 20px; /* optional */
+}
+.section-title {
+  position: relative;
+  display: inline-block;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 28px;
+  color: #1e90ff;
+  margin-bottom: 20px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 70%;
+  height: 3px;
+  background-color: black;
+  margin-top: 5px;
+}
+footer strong {
+  font-family: 'Kaushan Script', cursive;
+  font-size: 20px;
+  color: #111519;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+</style>
     <div class="container">
         <div class="card">
             <img src="IMG_20241211_213018.jpg" alt="Murali Krishna" />
@@ -376,8 +446,10 @@
             <p>BE.ECE</p>
             <div class="social-icons">
                 <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:mkmk65341@gmail.com"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
+               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+  <i class="fas fa-envelope"></i>
+</a>
+<a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
                 <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
         </div>
@@ -397,7 +469,7 @@
         <div class="section">
             <h1>My Self</h1>
             <h2>Murali Krishna V</h2>
-            <p><strong>ECE 3rd Year</strong></p>
+            <h1>ECE 3rd Year</h1>
             <ul class="points-list">
                 <li>Hi, I’m Murali Krishna V.</li>
                 <li>I am currently studying Electronics and Communication Engineering at Panimalar Engineering College.</li>
@@ -445,8 +517,9 @@
             <h1>Academic Background</h1>
             <ul class="points-list">
                 <li>10th (2021): PASS (COVID)</li>
-                <li>11th (2022): ~60%</li>
-                <li>12th (2023): ~64%</li>
+                <li>11th (2022): ~58%</li>
+                <li>12th (2023): ~62%</li>
+                <li>BE(2023-203): ~8.1CGPA</li>
             </ul>
         </div>
         <div class="section">
@@ -465,7 +538,9 @@
         </div>
 
         <div class="section">
-            <h1>My Projects</h1>
+           <h1 class="section-title">My Projects</h1>
+
+
             <ul class="project-list">
                 <li><strong>Adaptive Path Finding Car:</strong><br>Built a robotic car with adaptive path-finding using sensors and basic
                     algorithms. Enabled obstacle detection and autonomous navigation.
@@ -479,31 +554,32 @@
         </div>
     </div>
 
-    <footer>
-        <div class="contact-info">
-            <div>
-                <strong>Call</strong><br>
-                <a href="tel:+918778156255">+91 8778156255</a>
-            </div>
-            <div>
-                <strong>Write</strong><br>
-                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
-                    mkmk65341@gmail.com
-                </a>
-            </div>
-        </div>
+   <footer>
+  <div class="contact-info">
+    <div>
+      <strong>Call</strong><br>
+      <a href="tel:+918778156255">+91 8778156255</a>
+    </div>
+    <div>
+      <strong>Write</strong><br>
+      <a href="mailto:mkmk65341@gmail.com" target="_blank">mkmk65341@gmail.com</a>
+    </div>
+  </div>
 
-        <div class="follow-section">
-            <br>
-            <strong>Follow</strong>
-            <div class="social-icons">
-                <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-                <a href="mailto:mkmk65341@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+  <div class="follow-section">
+    <br>
+    <strong>Follow</strong>
+    <div class="social-icons">
+                <a href="https://wa.me/918778156255" target="_blank"><i class="fab fa-whatsapp"></i></a>
+               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
+  <i class="fas fa-envelope"></i>
+</a>
+<a href="https://www.instagram.com/millionaire_mk_" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank"><i class="fab fa-linkedin"></i></a>
             </div>
-        </div>
-    </footer>
+  </div>
+</footer>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
