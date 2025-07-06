@@ -1,297 +1,367 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Murali Krishna V</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Contact | Murali Krishna V</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <style>
+        /* Global Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      
-      color: #333;
-      animation: fadeInBody 1s ease-in-out;
-    }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f4f4; /* Added background-color for consistency */
+            color: #333;
+            animation: fadeIn 1s ease-in-out; /* Renamed to match other files */
+        }
 
-    @keyframes fadeInBody {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        @keyframes fadeIn { /* Renamed to match other files */
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    header {
-  position: relative;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  padding: 20px 30px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-  flex-wrap: wrap;
-  background: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(10px);
-  border-bottom-left-radius: 50% 20%;
-  border-bottom-right-radius: 50% 20%;
+        /* --- Header Styles (Copied from index.html) --- */
+        header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 20px 30px; /* Adjusted padding to match index.html */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom-left-radius: 50% 20%;
+            border-bottom-right-radius: 50% 20%;
+            z-index: 1000; /* Ensure header is above other content */
+        }
 
-  animation: circularMove 10s linear infinite;
-}
+        .logo {
+            font-size: 20px; /* Adjusted font-size to match index.html */
+            font-weight: bold;
+            color: #333; /* Default color for the logo text */
+        }
 
+        .logo span {
+            color: #2d7ff9; /* Color for the square icon */
+        }
 
-    @keyframes slideDown {
-      from { transform: translateY(-100%); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+        }
 
-    .logo {
-      font-size: 24px;
-      font-weight: bold;
-      color: black;
-    }
-    .logo1{
-      color:#2d7ff9;
+        nav a {
+            text-decoration: none;
+            margin-left: 20px; /* Adjusted margin to match index.html */
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
 
-    }
+        nav a:hover,
+        nav a.active {
+            color: #2d7ff9;
+            /* No border-bottom for active/hover in index.html, so removed from here */
+        }
 
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-    }
+        /* Hamburger Menu Styles (Copied from index.html) */
+        .menu-toggle {
+            display: none; /* Hidden by default for desktop */
+            font-size: 24px;
+            cursor: pointer;
+            color: #333;
+            transition: transform 0.3s ease;
+            position: relative;
+            z-index: 1001; /* Ensure toggle is above nav on mobile */
+        }
 
-    nav a {
-      text-decoration: none;
-      margin-left: 25px;
-      color: #333;
-      font-weight: 500;
-      position: relative;
-      transition: all 0.3s ease;
-    }
+        .menu-toggle .fa-bars,
+        .menu-toggle .fa-times {
+            display: block;
+        }
 
-    nav a:hover,
-    nav a.active {
-      color: #2d7ff9;
-    }
+        .menu-toggle.active .fa-bars {
+            display: none;
+        }
 
-    nav a.active::after {
-      content: "";
-      position: absolute;
-      width: 100%;
-      height: 2px;
-      bottom: -6px;
-      left: 0;
-      background-color: #2d7ff9;
-      border-radius: 2px;
-    }
+        .menu-toggle:not(.active) .fa-times {
+            display: none;
+        }
 
-    .container {
-      max-width: 900px;
-      margin: 60px auto;
-      background: #fff;
-      padding: 50px 40px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      animation: fadeIn 1.2s ease-in-out;
-    }
+        /* Media Query for Mobile (Copied from index.html) */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide nav links by default on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 100%; /* Position below the header */
+                left: 0;
+                width: 100%;
+                background: rgba(255, 255, 255, 0.98);
+                box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+                padding: 20px 30px;
+                border-bottom-left-radius: 10px;
+                border-bottom-right-radius: 10px;
+                text-align: center;
+            }
 
-    .intro h1 {
-      font-size: 38px;
-      font-weight: 700;
-      color: #2d7ff9;
-      margin-bottom: 20px;
-      position: relative;
-    }
+            nav.open {
+                display: flex; /* Show nav links when open */
+            }
 
-    .intro h1::after {
-      content: "";
-      display: block;
-      width: 60px;
-      height: 3px;
-      background-color: #2d7ff9;
-      margin-top: 12px;
-      border-radius: 4px;
-    }
+            nav a {
+                margin: 10px 0;
+                padding: 10px 0;
+                border-bottom: 1px solid #eee;
+            }
 
-    .intro p {
-      font-size: 17px;
-      margin-top: 15px;
-      color: #444;
-      line-height: 1.7;
-    }
+            nav a:last-child {
+                border-bottom: none;
+            }
 
-    .intro ul {
-      margin-top: 25px;
-      list-style: none;
-    }
+            .menu-toggle {
+                display: block; /* Show hamburger on mobile */
+            }
 
-    .intro li {
-      font-size: 16px;
-      color: #444;
-      padding-left: 28px;
-      position: relative;
-      margin-bottom: 18px;
-      transition: all 0.3s ease;
-    }
+            header {
+                justify-content: space-between; /* Space out logo and toggle */
+            }
+        }
+        /* --- End Header Styles --- */
 
-    .intro li::before {
-      content: "\2022";
-      color: #2d7ff9;
-      position: absolute;
-      left: 0;
-      font-size: 24px;
-      top: 0;
-    }
+        /* Contact Page Specific Styles */
+        .container {
+            max-width: 900px;
+            margin: 60px auto; /* Adjusted margin-top to account for fixed header */
+            background: #fff;
+            padding: 50px 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 1.2s ease-in-out; /* Retained specific animation for container */
+        }
 
-    footer {
-      background-color: #f9f9f9;
-      padding: 40px 20px;
-      border-top: 1px solid #ddd;
-      text-align: center;
-    }
+        .intro h1 {
+            font-size: 38px;
+            font-weight: 700;
+            color: #2d7ff9;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-    .contact-info {
-      display: flex;
-      justify-content: center;
-      gap: 60px;
-      flex-wrap: wrap;
-      margin-bottom: 25px;
-    }
+        .intro h1::after {
+            content: "";
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: #2d7ff9;
+            margin-top: 12px;
+            border-radius: 4px;
+        }
 
-    .contact-info div {
-      font-size: 14px;
-      color: #333;
-      transition: transform 0.3s ease;
-    }
+        .intro p {
+            font-size: 17px;
+            margin-top: 15px;
+            color: #444;
+            line-height: 1.7;
+        }
 
-    .contact-info div:hover {
-      transform: scale(1.05);
-    }
+        .intro ul {
+            margin-top: 25px;
+            list-style: none;
+        }
 
-    .follow-section {
-      margin-top: 25px;
-    }
+        .intro li {
+            font-size: 16px;
+            color: #444;
+            padding-left: 28px;
+            position: relative;
+            margin-bottom: 18px;
+            transition: all 0.3s ease;
+        }
 
-    .follow-section strong {
-      font-size: 16px;
-      display: block;
-      margin-bottom: 10px;
-      color: #444;
-    }
+        .intro li::before {
+            content: "\2022";
+            color: #2d7ff9;
+            position: absolute;
+            left: 0;
+            font-size: 24px;
+            top: 0;
+        }
 
-    .social-icons {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
+        /* Footer Styles (Consistent across all pages) */
+        footer {
+            background-color: #f9f9f9;
+            padding: 40px 20px;
+            border-top: 1px solid #ddd;
+            text-align: center;
+        }
 
-    .social-icons a {
-      width: 42px;
-      height: 42px;
-      display: inline-flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 50%;
-      background-color: white;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      text-decoration: none;
-      font-size: 18px;
-      transition: all 0.3s ease;
-    }
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px; /* Adjusted gap to match other footers, was 60px */
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
 
-    .social-icons a:hover {
-      transform: rotate(15deg) scale(1.2);
-    }
+        .contact-info div {
+            font-size: 14px;
+            color: #333;
+            transition: transform 0.3s ease;
+        }
 
-    .social-icons a[href*="wa.me"] i {
-      color: #25D366;
-    }
+        .contact-info div:hover {
+            transform: scale(1.05);
+        }
 
-    .social-icons a[href^="mailto:"] i {
-      color: #EA4335;
-    }
+        .follow-section {
+            margin-top: 25px; /* Consistent margin */
+        }
 
-    .social-icons a[href*="instagram.com"] i {
-      background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
+        .follow-section strong {
+            font-size: 16px;
+            display: block;
+            margin-bottom: 10px;
+            color: #444;
+        }
 
-    .social-icons a[href*="linkedin.com"] i {
-      color: #0077B5;
-    }
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
 
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
+        .social-icons a {
+            width: 36px; /* Adjusted size to match other files */
+            height: 36px; /* Adjusted size to match other files */
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            background-color: white;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08); /* Adjusted shadow */
+            text-decoration: none;
+            font-size: 18px;
+            transition: all 0.3s ease;
+        }
 
-      .container {
-        padding: 30px 20px;
-      }
-    }
-  </style>
+        .social-icons a:hover {
+            transform: scale(1.15); /* Adjusted transform to match other files */
+        }
+
+        .social-icons a[href*="wa.me"] i { color: #25D366; }
+        .social-icons a[href^="mailto:"] i { color: #EA4335; }
+        .social-icons a[href*="instagram.com"] i {
+            background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .social-icons a[href*="linkedin.com"] i { color: #0077B5; }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="logo"><span class="logo1">■</span> Murali Krishna V / <small>BE.ECE</small></div>
-    <nav>
-      <a href="index.html">ABOUT ME</a>
-      <a href="Resume.html">RESUME</a>
-      <a href="Project.html">PROJECTS</a>
-      <a href="#" class="active">CONTACT</a>
-    </nav>
-  </header>
+    <header>
+        <div class="logo"><span>■</span> Murali Krishna V / <small>BE.ECE</small></div>
+        <nav id="mainNav">
+            <a href="index.html">ABOUT ME</a>
+            <a href="Resume.html">RESUME</a>
+            <a href="Project.html">PROJECTS</a>
+            <a href="Contact.html" class="active">CONTACT</a>
+        </nav>
+        <div class="menu-toggle" id="menuToggle">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-times"></i>
+        </div>
+    </header>
 
-  <div class="container">
-    <div class="intro">
-      <h1>Contact Me</h1>
-      <p>If you like to get in touch, feel free to reach out using the contact details below. I'm happy to connect and collaborate on meaningful projects.</p>
-      <ul>
-        <li><strong>Phone:</strong> +91 8778156255</li>
-        <li><strong>Email:</strong> mkmk65341@gmail.com</li>
-        <li><strong>Location:</strong> Aruppukottai, Tamil Nadu, India</li>
-      </ul>
+    <div class="container">
+        <div class="intro">
+            <h1>Contact Me</h1>
+            <p>If you'd like to get in touch, feel free to reach out using the contact details below. I'm happy to connect and collaborate on meaningful projects.</p>
+            <ul>
+                <li><strong>Phone:</strong> +91 8778156255</li>
+                <li><strong>Email:</strong> mkmk65341@gmail.com</li>
+                <li><strong>Location:</strong> Aruppukottai, Tamil Nadu, India</li>
+            </ul>
+        </div>
     </div>
-  </div>
 
-  <footer>
-  <div class="contact-info">
-    <div>
-      <strong>Call</strong><br>
-      <a href="tel:+918778156255">+91 8778156255</a>
-    </div>
-    <div>
-      <strong>Write</strong><br>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">
-  mkmk65341@gmail.com
-</a>
- </div>
-  </div>
+    <footer>
+        <div class="contact-info">
+            <div>
+                <strong>Call</strong><br>
+                <a href="tel:+918778156255">+91 8778156255</a>
+            </div>
+            <div>
+                <strong>Write</strong><br>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=mkmk65341@gmail.com" target="_blank">mkmk65341@gmail.com</a>
+            </div>
+        </div>
 
-  <div class="follow-section" style="margin-top: 20px;">
-    <strong>Follow</strong>
-    <div class="social-icons">
-      <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-      </a>
-      <a href="mailto:mkmk65341@gmail.com" title="Email">
-        <i class="fas fa-envelope"></i>
-      </a>
-      <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram">
-        <i class="fab fa-instagram"></i>
-      </a>
-     <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn">
-  <i class="fab fa-linkedin"></i>
-</a>
+        <div class="follow-section">
+            <br>
+            <strong>Follow</strong>
+            <div class="social-icons">
+                <a href="https://wa.me/918778156255" target="_blank" title="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="mailto:mkmk65341@gmail.com" title="Email">
+                    <i class="fas fa-envelope"></i>
+                </a>
+                <a href="https://www.instagram.com/millionaire_mk_" target="_blank" title="Instagram">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/murali-krishna-v-6359222b8" target="_blank" title="LinkedIn">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
 
-    </div>
-  </div>
-</footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const menuToggle = document.getElementById('menuToggle');
+            const mainNav = document.getElementById('mainNav');
 
+            // Set the active class for the current page
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = mainNav.querySelectorAll('a');
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href').split('/').pop();
+                if (linkHref.toLowerCase() === currentPage.toLowerCase()) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+
+            menuToggle.addEventListener('click', function () {
+                mainNav.classList.toggle('open');
+                menuToggle.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) {
+                        mainNav.classList.remove('open');
+                        menuToggle.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
